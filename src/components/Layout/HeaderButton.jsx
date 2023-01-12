@@ -3,8 +3,9 @@ import cssClasses from './HeaderButton.module.css'
 import CartIcon from '../Cart/CartIcon'
 
 export default function HeaderButton(props) {
+    const { onClick } = props
     return (
-        <button className={cssClasses.button}>
+        <button className={cssClasses.button} onClick={onClick}>
             <span className={cssClasses.icon}>
                 <CartIcon />
             </span>

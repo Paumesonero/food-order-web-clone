@@ -1,15 +1,16 @@
 import React from 'react'
-import classes from './Header.module.css'
+import cssClasses from './Header.module.css'
 import mealsImg from '../../assets/meals.jpg'
+import HeaderButton from './HeaderButton'
 
 export default function Header(props) {
     return (
         <>
-            <header>
+            <header className={cssClasses.header}>
                 <h1>Appetito</h1>
-                <button>Cart</button>
+                <HeaderButton />
             </header>
-            <div>
+            <div className={cssClasses.mainImage}>
                 <img src={mealsImg} alt='food-background' />
             </div>
         </>

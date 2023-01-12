@@ -38,6 +38,7 @@ export default function AvailableMeals() {
                     {dummyMeals.map((el) => {
                         return (
                             <MealItem
+                                id={el.id}
                                 key={el.id}
                                 title={el.name}
                                 description={el.description}

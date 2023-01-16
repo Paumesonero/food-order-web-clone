@@ -7,12 +7,24 @@ export default function HeaderButton(props) {
     const { onClick } = props
     const [btnHighlight, setBtnHighlight] = useState(false)
     const cartCtx = useContext(CartContext)
-    const numberOfCartItems = cartCtx.items.reduce((curr, present) => {
+    const { items } = cartCtx
+    const numberOfCartItems = items.reduce((curr, present) => {
         return curr + present.amount
     }, 0)
+
+
     useEffect(() => {
+        if (items.length === 0) {
+            return;
+        }
         setBtnHighlight(true)
-    }, [])
+        const timer = setTimeout(() => {
+            setBtnHighlight(false)
+        }, 300)
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [items])
     const btnClasses = `${cssClasses.button} ${btnHighlight ? cssClasses.bump : ''}`;
     return (
         <button className={btnClasses} onClick={onClick}>
